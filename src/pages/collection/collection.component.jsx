@@ -1,3 +1,72 @@
+//context use code dynamicly  **
+ 
+
+
+
+
+
+/** ****** context use code static  **
+
+//context use code static 
+
+
+
+import React from 'react';
+
+
+import CollectionItem from '../../components/collection-item/collection-item.component';
+
+
+import './collection.styles.scss';
+
+import CollectionContext  from "../../contexts/collections/collections.context";
+
+
+
+const CollectionPage = ({ match }) => {
+
+
+  
+  return (
+    
+    <CollectionContext.Consumer>
+    {
+      collections =>{  // we receive  collections from Collecti onContext.Consumer
+
+        const collection = collections[match.params.collectionId]; 
+        const { title, items } = collection;
+         return (
+        
+          <div className='collection-page'>
+          <h2 className='title'>{title}</h2>
+          <div className='items'>
+            {items.map(item => (
+              <CollectionItem key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+         )
+      }
+    }
+    </CollectionContext.Consumer>
+    
+  );
+};
+
+export default CollectionPage;
+
+
+//context use code static 
+
+*/
+
+
+
+
+
+/**
+    ***** ** redux code 
+    
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -5,11 +74,18 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
+
+
+
 import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
+  
+
+
   const { title, items } = collection;
   return (
+   
     <div className='collection-page'>
       <h2 className='title'>{title}</h2>
       <div className='items'>
@@ -18,6 +94,9 @@ const CollectionPage = ({ collection }) => {
         ))}
       </div>
     </div>
+   
+    
+    
   );
 };
 
@@ -26,3 +105,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(mapStateToProps)(CollectionPage);
+
+
+*/
+
+
+
+
+
