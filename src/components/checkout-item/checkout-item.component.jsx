@@ -14,6 +14,7 @@ import './checkout-item.styles.scss';
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   const {addItem, removeItem, clearItemFromCart} = useContext(CartContext)
+  console.log(clearItemFromCart);
 
   return (
     <div className='checkout-item'>
@@ -31,9 +32,12 @@ const CheckoutItem = ({ cartItem }) => {
         </div>
       </span>
       <span className='price'>{price}</span>
-      <div className='remove-button' onClick={() => clearItemFromCart(cartItem)}>
+      <div className='remove-button' 
+        onClick={() => clearItemFromCart(cartItem)}
+        // onClick={() =>console.log('clicked')}
+        >
         &#10005;
-      </div>
+      </div> 
     </div>
   );
 };

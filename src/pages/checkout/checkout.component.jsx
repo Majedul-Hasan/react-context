@@ -15,6 +15,7 @@ import './checkout.styles.scss';
 
 const CheckoutPage = () => {
   const {cartItems, cartTotal} = useContext(CartContext)
+  console.log(cartItems);
 
   
   
@@ -38,7 +39,10 @@ const CheckoutPage = () => {
         <span>Remove</span>
       </div>
     </div>
-  {cartItems.map(cartItem => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)}
+  {/* {cartItems.map(cartItem => (<CheckoutItem key={cartItem.id} cartItem={cartItem} />))} */}
+  {cartItems.map(cartItem => (
+        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+      ))}
   
   {/* {cartItems.map(cartItem => {console.log(cartItem);
   console.log(cartItem.id); 

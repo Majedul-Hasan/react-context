@@ -34,10 +34,12 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
 //*** context code */
 
 
-export const filterItemFromCart = (cartItems, item)=>{
+// export const filterItemFromCart = (cartItems, item)=>{
+//   cartItems.filter(cartItem => cartItem.id !== item.id)
+// } 
+export const filterItemFromCart = (cartItems, item) =>
   cartItems.filter(cartItem => cartItem.id !== item.id)
-} 
-
+  
 
 export const getCartItemsCount = cartItems => cartItems.reduce(
       (accumalatedQuantity, cartItem) =>
